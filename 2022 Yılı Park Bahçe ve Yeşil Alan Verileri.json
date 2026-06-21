@@ -1,0 +1,5 @@
+{
+  "fields": [{"id":"_id","type":"int"},{"id":"Cocuk oyun grubu bulunan yer","type":"text"},{"id":"Cocuk oyun grubu sayisi","type":"numeric"},{"id":"Aciklama","type":"text","info":{"type_override":"text","notes":"TR: Açıklama verisi\r\n\r\nEN: Description data","label":"Açıklama / Description"}}],
+  "records": [
+    [1,"Anadolu Yakası ve Avrupa Yakası",818,"İstanbul geneli mevcut parklarda bulunan 2022 yılı çocuk oyun grupları sayısı"]
+]}
