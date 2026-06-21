@@ -1,0 +1,30 @@
+(TEKNOLOJİ) - HTML, CSS ve JavaScript kullanarak ArcGIS Maps SDK for JavaScript v4.28 altyapısıyla dinamik bir İstanbul CBS haritası oluşturacağız.https://developers.arcgis.com/javascript/latest/sample-code/
+
+(KAPSAM) - İstanbul il sınırlarındaki mahalle muhtarlıklarını, kentsel yeşil alanların 20 yıllık gelişimini ve İBB birimlerinin yıllık su tüketim yoğunluklarını analiz eden bir dijital altlık üreteceğiz. "data" klasöründe sağladığım yerel GeoJSON ve JSON verileri harita motoru tarafından doğrudan okunarak mekansal analizlere dönüştürülecektir.
+
+(WIDGET) - Search widget ile harita üzerinde İstanbul sınırları dahilinde adres ve konum aramaları yapılabilecektir.
+const searchWidget = new Search({ view: view, container: "searchDiv" });
+
+(WIDGET) - Locate widget ile kullanıcının harita üzerindeki anlık canlı konumuna gidilebilecektir.
+const locateWidget = new Locate({ view: view });
+
+(WIDGET) - Places API aracı ile haritada seçilen ya da merkezde olan noktanın 1000 metre çevresindeki mevcut rekreasyon ve yeşil alan odakları sorgulanıp listelenecektir.
+const queryParams = new PlacesQueryParameters({ apiKey: esriConfig.apiKey, point: view.center, radius: 1000, categoryIds: ["4bf58dd8d48988d163941735"] });
+
+(WIDGET) - Gündüz ve Gece modu geçiş butonu ile arcgis/topographic ve streets-night-vector harita altlıkları arasında dinamik değişim yapılacaktır.
+
+(WIDGET) - 2D/3D boyut değiştirici buton ile MapView ve SceneView görünümleri arasında kamera açısı ve koordinatlar kilitli kalacak şekilde geçiş sağlanacaktır.
+
+(RENDERER) - Haritaya yüklenen yeşil alanların su harcama metrikleri ve İBB birimlerinin su tüketim miktarları için bir Isı Haritası (Heatmap) oluşturulacaktır. Yoğunluk renkleri düşük tüketim için Yeşil (#00E676), orta tüketim için Sarı (#FFEA00), yüksek tüketim için Turuncu (#FFB74D) ve kritik seviyeler için Kırmızı (#D50000) olarak ayarlanacaktır.
+
+(RENDERER) - İstanbul mahalle muhtarlıkları haritada noktasal (Point) semboloji ile gösterilecektir. Noktalar 8px sabit boyutunda, içi Beyaz (#FFFFFF) ve dış çizgisi 2px kalınlığında Lacivert (#1A5276) olarak çizilecektir. Noktalara tıklandığında mahalle ve ilçe adını gösteren bilgi pencereleri (Popup) açılacaktır.
+
+(RENDERER) - Harita ölçeği küçüldüğünde ve noktalar birbirine yaklaştığında, görsel kirliliği önlemek adına 80px yarıçapındaki tüm mahalle verileri otomatik olarak sayısal kümeler (Cluster) halinde daraltılacaktır.
+
+(STYLE) - Harita ekranını kontrol eden sol panelin arka plan rengi #0F2A3F
+
+(STYLE) - Üst bilgi şeridinin arka plan rengi #1A5276
+
+(STYLE) - Genel metin yazıları #ECEFF1 
+
+(STYLE) - Harita üzerindeki tüm butonların odak rengi #FFB74D olacaktır.

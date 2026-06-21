@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>İstanbul Yeşil Alanlar — Su Ayak İzi & İklim Uyumlu Peyzaj Asistanı</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/dark/main.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://js.arcgis.com/4.28/"></script>
+</head>
+<body>
+  <!-- Üst bilgi şeridi -->
+  <header id="topbar">
+    <div class="brand">
+      <span class="logo-dot"></span>
+      <h1>İstanbul Yeşil Alanlar · Su Ayak İzi &amp; İklim Uyumlu Peyzaj Asistanı</h1>
+    </div>
+    <div id="searchDiv" class="search-host"></div>
+  </header>
+
+  <div id="app">
+    <!-- Sol kontrol paneli -->
+    <aside id="sidePanel">
+      <section class="panel-block">
+        <h2>Görünüm Kontrolleri</h2>
+        <div class="btn-row">
+          <button id="basemapToggle" class="ctrl-btn" type="button">🌙 Gece Modu</button>
+          <button id="dimToggle" class="ctrl-btn active" type="button">🗺️ 2D'ye Geç</button>
+        </div>
+        <div class="btn-row">
+          <button id="heatToggle" class="ctrl-btn" type="button">🔥 Isı Haritası: Açık</button>
+          <button id="placesBtn" class="ctrl-btn" type="button">🌳 Yakındaki Yeşil Alanlar</button>
+        </div>
+        <div class="sub-label">Altlık (Harita Türü)</div>
+        <div class="btn-row">
+          <button id="bmImagery" class="ctrl-btn sm" type="button">🛰️ Uydu</button>
+          <button id="bmStreets" class="ctrl-btn sm" type="button">🛣️ Yol</button>
+          <button id="bmTerrain" class="ctrl-btn sm" type="button">⛰️ Arazi</button>
+        </div>
+      </section>
+
+      <section class="panel-block">
+        <h2>Lejant — Su Tüketim Yoğunluğu</h2>
+        <ul class="legend">
+          <li><span class="sw" style="background:#00E676"></span> Düşük tüketim</li>
+          <li><span class="sw" style="background:#FFEA00"></span> Orta tüketim</li>
+          <li><span class="sw" style="background:#FFB74D"></span> Yüksek tüketim</li>
+          <li><span class="sw" style="background:#D50000"></span> Kritik seviye</li>
+        </ul>
+      </section>
+
+      <section class="panel-block">
+        <h2>Yeşil Alanlar İçin Harcanan Su (m³)</h2>
+        <div id="waterChart" class="chart" aria-label="Yıllara göre su tüketimi"></div>
+      </section>
+
+      <section class="panel-block">
+        <h2>İBB Birimleri Yıllık Su Tüketimi (m³)</h2>
+        <div id="ibbChart" class="chart" aria-label="İBB birimleri yıllık su tüketimi"></div>
+      </section>
+
+      <section class="panel-block muted">
+        <h2>Yakındaki Yeşil Alanlar (1000 m)</h2>
+        <ul id="placesList" class="places-list"><li class="hint">Sorgu için butona basın.</li></ul>
+      </section>
+    </aside>
+
+    <!-- Harita alanı -->
+    <main id="viewHost">
+      <div id="viewDiv"></div>
+      <div id="districtLabel" class="district-label hidden"></div>
+      <div id="loading" class="loading">Harita yükleniyor…</div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
